@@ -74,6 +74,7 @@ def draw_frame(path, x, y, w, h):
     path.v(h)
     path.h(-w)
     path.v(-h)
+    path.Z()
 
 
 def draw_greek_key_unit(path):
@@ -103,6 +104,7 @@ def draw_greek_key_unit(path):
         draw_horizontal_unit(path)
     path.v(-key_pattern_length)
     path.h(-4 * key_unit_length)
+    
 
 
 def generate_pattern_svg(stroke_width=2, stroke_color='black', stroke_opacity=1.0, filename='meander'):
@@ -113,7 +115,8 @@ def generate_pattern_svg(stroke_width=2, stroke_color='black', stroke_opacity=1.
         stroke=stroke_color,
         stroke_width=stroke_width,
         stroke_opacity=stroke_opacity,
-        fill='none'
+        fill='none',
+        stroke_linecap='square'
     )
 
     draw_greek_key_unit(path)
