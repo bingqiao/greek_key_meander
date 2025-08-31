@@ -66,6 +66,34 @@ def draw_vertical_unit(path):
     path.h(-3 * key_unit_length)
     path.v(4 * key_unit_length)
 
+def draw_horizontal_unit_right_to_left(path):
+    """Draws a single horizontal unit of the meander pattern, from right to left."""
+    key_unit_length = config.key_unit_length
+    path.h(-4*key_unit_length)
+    path.v(-3*key_unit_length)
+    path.h(2*key_unit_length)
+    path.v(1*key_unit_length)
+    path.h(-key_unit_length)
+    path.v(1*key_unit_length)
+    path.h(2*key_unit_length)
+    path.v(-3*key_unit_length)
+    path.h(-4*key_unit_length)
+    path.v(4*key_unit_length)
+
+def draw_vertical_unit_bottom_up(path):
+    """Draws a single vertical unit of the meander pattern, bottom up."""
+    key_unit_length = config.key_unit_length
+    path.v(-4*key_unit_length)
+    path.h(3*key_unit_length)
+    path.v(2*key_unit_length)
+    path.h(-key_unit_length)
+    path.v(-key_unit_length)
+    path.h(-key_unit_length)
+    path.v(2*key_unit_length)
+    path.h(3*key_unit_length)
+    path.v(-4*key_unit_length)
+    path.h(-4*key_unit_length)
+
 
 def draw_frame(path, x, y, w, h):
     """Draws a rectangular frame using a path."""
@@ -85,27 +113,31 @@ def draw_greek_key_unit(path):
     width_units = config.width_units
     height_units = config.height_units
 
-    # First sub-path
+    # top line
     path.M(start_x, start_y)
     path.v(-key_unit_length)
     for _ in range(width_units - 1):
         draw_horizontal_unit(path)
     path.v(-4 * key_unit_length)
     path.h(key_unit_length)
+    # right line
     for _ in range(height_units - 1):
         draw_vertical_unit(path)
 
-    # Second sub-path
-    path.M(start_x, start_y)
-    for _ in range(height_units - 1):
-        draw_vertical_unit(path)
-    path.h(key_pattern_length)
-    for _ in range(width_units - 1):
-        draw_horizontal_unit(path)
-    path.v(-key_pattern_length)
-    path.h(-4 * key_unit_length)
-    
+    path.h(4*key_unit_length)
+    path.v(5*key_unit_length)
 
+    # bottom line
+    for _ in range(width_units -1):
+        draw_horizontal_unit_right_to_left(path)
+
+    path.h(-5*key_unit_length)
+
+    # left line
+    for _ in range(height_units - 1):
+        draw_vertical_unit_bottom_up(path)
+
+    path.Z()
 
 def generate_pattern_svg(stroke_width=2, stroke_color='black', stroke_opacity=1.0, filename='meander'):
     """Generates the complete SVG drawing."""
@@ -116,7 +148,7 @@ def generate_pattern_svg(stroke_width=2, stroke_color='black', stroke_opacity=1.
         stroke_width=stroke_width,
         stroke_opacity=stroke_opacity,
         fill='none',
-        stroke_linecap='square'
+        #stroke_linecap='square'
     )
 
     draw_greek_key_unit(path)
