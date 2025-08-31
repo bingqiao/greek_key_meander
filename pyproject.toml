@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "greek_key_meander"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
   { name="bqiao", email="bqiaodev@gmail.com" },
 ]
@@ -20,3 +20,6 @@ classifiers = [
 [project.urls]
 "Homepage" = "https://github.com/bingqiao/greek_key_meander"
 "Bug Tracker" = "https://github.com/bingqiao/greek_key_meander/issues"
+
+[project.scripts]
+meander = "meander:main"

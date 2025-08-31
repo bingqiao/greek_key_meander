@@ -163,8 +163,7 @@ def generate_pattern_svg(stroke_width=2, stroke_color='black', stroke_opacity=1.
     cairosvg.svg2png(url=f'{filename}.svg', write_to=f'{filename}.png', output_width=width, output_height=height)
 
 
-if __name__ == '__main__':
-
+def main():
     # Set up argument parser
     parser = argparse.ArgumentParser(description="Draw a Greek key pattern SVG and PNG with customizable line properties.")
     parser.add_argument('--stroke-width', type=float, default=6.0, help="Line thickness in pixels (default: 2.0)")
@@ -188,3 +187,6 @@ if __name__ == '__main__':
         stroke_opacity=args.stroke_opacity,           # 70% opacity
         filename=args.file
     )
+
+if __name__ == '__main__':
+    main()

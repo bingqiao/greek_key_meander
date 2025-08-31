@@ -55,7 +55,7 @@ python -m meander [options]
 To generate a pattern with a red color and a different size:
 
 ```bash
-python meander.py --stroke-color red --width 10 --height 5
+python -m meander --stroke-color red --width 10 --height 5
 ```
 
 ## License
