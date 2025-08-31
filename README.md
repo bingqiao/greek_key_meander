@@ -18,17 +18,7 @@ You can install the package from PyPI:
 pip install greek_key_meander
 ```
 
-## Requirements
-
-- Python 3
-- drawsvg
-- cairosvg
-
-You can install the required libraries using pip:
-
-```bash
-pip install drawsvg cairosvg
-```
+This will also install the required dependencies: `drawsvg` and `cairosvg`.
 
 ## Usage
 
