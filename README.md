@@ -1,5 +1,7 @@
 # Greek Key Meander Generator
 
+[![PyPI version](https://badge.fury.io/py/greek-key-meander.svg)](https://badge.fury.io/py/greek-key-meander)
+
 This Python script generates Greek key meander patterns as SVG and PNG images.
 
 ## Demo
@@ -46,6 +48,11 @@ To generate a pattern with a red color and a different size:
 
 ```bash
 python -m meander --stroke-color red --width 10 --height 5
+```
+
+Or just the following if the module is installed:
+```bash
+meander --width 24 --height 13 --size 10 --stroke-color "#AB8E0E" --stroke-opacity 0.7
 ```
 
 ## License
