@@ -1,6 +1,7 @@
 import drawsvg as draw
 import cairosvg
 import argparse
+import warnings
 
 class GreekKeyConfig:
     def __init__(self, key_unit_length, width_units, height_units):
@@ -164,6 +165,11 @@ def generate_pattern_svg(stroke_width=2, stroke_color='black', stroke_opacity=1.
 
 
 def main():
+    warnings.warn(
+        "The 'greek_key_meander' package is deprecated. Please use 'greek_meander' instead.",
+        DeprecationWarning
+    )
+
     # Set up argument parser
     parser = argparse.ArgumentParser(description="Draw a Greek key pattern SVG and PNG with customizable line properties.")
     parser.add_argument('--stroke-width', type=float, default=6.0, help="Line thickness in pixels (default: 2.0)")

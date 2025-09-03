@@ -4,7 +4,9 @@
 
 This Python script generates Greek key meander patterns as SVG and PNG images.
 
-N.B. another repo [greek_meander](https://github.com/bingqiao/greek_meander) supersedes this one.
+> **Warning**
+> This package has been deprecated and is no longer maintained.
+> Please use the new package [greek_meander](https://github.com/bingqiao/greek_meander) instead.
 
 ## Demo
 
